@@ -4,7 +4,7 @@ E-Commerce application used for shopping cloths
 Technologies used:
 1. React (UI development)
 2. React-Router (Pages routing)
-3. Firebase (Authentication)
+3. Firebase (Authentication & database)
 4. Sass (UI Styling)
 
 References:
