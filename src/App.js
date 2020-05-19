@@ -4,7 +4,7 @@ import Homepage from "./pages/home/homepage";
 import Shoppage from "./pages/shop/shoppage";
 import Loginpage from "./pages/login/loginpage";
 import Header from "./components/header/header";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import "./App.css";
 
 class App extends React.Component {
@@ -13,19 +13,28 @@ class App extends React.Component {
 
     this.state = {
       currentUser: null,
-      status: "LOADING",
     };
   }
 
   unSubscribeFromAuth = null;
 
   componentDidMount() {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
+            },
+          });
+        });
+      }
+
       this.setState({
-        currentUser: user,
-        status: "SUCCESS",
+        currentUser: userAuth,
       });
-      console.log(user);
     });
   }
 
@@ -51,21 +60,19 @@ class App extends React.Component {
     }
 
     return (
-      this.state.status === "SUCCESS" && (
-        <>
-          <Header options={headerOptions} />
-          <Switch>
-            {currentUser ? (
-              <>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/shop" component={Shoppage} />
-              </>
-            ) : (
-              <Route path="/" component={Loginpage} />
-            )}
-          </Switch>
-        </>
-      )
+      <>
+        <Header options={headerOptions} />
+        <Switch>
+          {currentUser ? (
+            <>
+              <Route exact path="/" component={Homepage} />
+              <Route path="/shop" component={Shoppage} />
+            </>
+          ) : (
+            <Route path="/" component={Loginpage} />
+          )}
+        </Switch>
+      </>
     );
   }
 }

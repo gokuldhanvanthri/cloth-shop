@@ -13,11 +13,11 @@ const Header = ({ options = [] }) => {
       <div className="options">
         {options.map(({ text, path, onClick }) =>
           path ? (
-            <Link className="option" to={path}>
+            <Link key={text} className="option" to={path}>
               {text}
             </Link>
           ) : (
-            <div className="option" onClick={onClick}>
+            <div key={text} className="option" onClick={onClick}>
               {text}
             </div>
           )
