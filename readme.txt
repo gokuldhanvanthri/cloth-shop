@@ -6,9 +6,17 @@ Technologies used:
 2. React-Router (Pages routing)
 3. Firebase (Authentication & database)
 4. Sass (UI Styling)
+5. Redux - Maintaining the state of the application
+    a. Reselect - Memoizing the redux state.
+    b. redux-persist - Persisting the redux state using local/session storage
+6. Stripe - Secure payments for the web.
 
 References:
 1. https://reactjs.org/
 2. https://reacttraining.com/react-router/web/guides/quick-start
 3. https://firebase.google.com/
 4. https://sass-lang.com/
+5. https://redux.js.org/
+    a. https://www.npmjs.com/package/reselect
+    b. https://www.npmjs.com/package/redux-persist
+6. https://stripe.com/docs/stripe-js/react
