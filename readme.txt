@@ -10,6 +10,7 @@ Technologies used:
     a. Reselect - Memoizing the redux state.
     b. redux-persist - Persisting the redux state using local/session storage
 6. Stripe - Secure payments for the web.
+7. Heroku - Cloud platform to host the web application
 
 References:
 1. https://reactjs.org/
@@ -20,3 +21,8 @@ References:
     a. https://www.npmjs.com/package/reselect
     b. https://www.npmjs.com/package/redux-persist
 6. https://stripe.com/docs/stripe-js/react
+    a. https://dashboard.stripe.com/test/apikeys
+7. https://dashboard.heroku.com/apps
+    a. https://devcenter.heroku.com/articles/heroku-cli
+    b. https://github.com/mars/create-react-app-buildpack
+    c. https://devcenter.heroku.com/articles/github-integration
