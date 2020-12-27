@@ -1,7 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import FormInput from "../form-input/form-input";
 import Button from "../button/button";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { signUpStart } from "../../redux/user/user.action";
 import "./sign-up.scss";
 
 class SignUp extends React.Component {
@@ -30,12 +31,9 @@ class SignUp extends React.Component {
       return;
     }
 
+    const { signUpStart } = this.props;
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      createUserProfileDocument(user, { displayName });
+      signUpStart(displayName, email, password);
 
       this.setState({
         displayName: "",
@@ -94,4 +92,9 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (displayName, email, password) =>
+    dispatch(signUpStart({ displayName, email, password })),
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);

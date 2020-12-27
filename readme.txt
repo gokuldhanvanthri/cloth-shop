@@ -9,6 +9,8 @@ Technologies used:
 5. Redux - Maintaining the state of the application
     a. Reselect - Memoizing the redux state.
     b. redux-persist - Persisting the redux state using local/session storage
+    c. redux-thunk - Asynchronous event handling in redux - Removed after adding redux-saga
+    d. redux-saga - Helps in easier management of application side-effects 
 6. Stripe - Secure payments for the web.
 7. Heroku - Cloud platform to host the web application
 
@@ -20,6 +22,7 @@ References:
 5. https://redux.js.org/
     a. https://www.npmjs.com/package/reselect
     b. https://www.npmjs.com/package/redux-persist
+    d. https://redux-saga.js.org/
 6. https://stripe.com/docs/stripe-js/react
     a. https://dashboard.stripe.com/test/apikeys
 7. https://dashboard.heroku.com/apps
