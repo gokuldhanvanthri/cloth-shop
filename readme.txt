@@ -1,31 +1,21 @@
+Live URL : https://cool-cloths-live.herokuapp.com/
+
 Introduction:
 E-Commerce application used for shopping cloths
 
-Technologies used:
-1. React (UI development)
-2. React-Router (Pages routing)
-3. Firebase (Authentication & database)
-4. Sass (UI Styling)
-5. Redux - Maintaining the state of the application
-    a. Reselect - Memoizing the redux state.
-    b. redux-persist - Persisting the redux state using local/session storage
-    c. redux-thunk - Asynchronous event handling in redux - Removed after adding redux-saga
-    d. redux-saga - Helps in easier management of application side-effects 
-6. Stripe - Secure payments for the web.
-7. Heroku - Cloud platform to host the web application
+Back-End Technologies used:
+1. nodemon - Live reload of the services code.
+2. concurrently - Multiple commands concurrently in a single terminal (Starting client and server)
+3. heroku - Cloud platform to host the web application.
+        > Runs start script of the main package.json - start the server
+        > Runs heroku-postbuild after running the build script
+4. body-parser - Used to parse the request body to json
+5. cors - library to handle cross origin requests.
+6. dotenv - Stores the secret keys in webserver
+        > .env file is created in the root location to hold the stripe secret key
+7. express - framework to build an API server
+8. stripe - library to make the payments
+
 
 References:
-1. https://reactjs.org/
-2. https://reacttraining.com/react-router/web/guides/quick-start
-3. https://firebase.google.com/
-4. https://sass-lang.com/
-5. https://redux.js.org/
-    a. https://www.npmjs.com/package/reselect
-    b. https://www.npmjs.com/package/redux-persist
-    d. https://redux-saga.js.org/
-6. https://stripe.com/docs/stripe-js/react
-    a. https://dashboard.stripe.com/test/apikeys
-7. https://dashboard.heroku.com/apps
-    a. https://devcenter.heroku.com/articles/heroku-cli
-    b. https://github.com/mars/create-react-app-buildpack
-    c. https://devcenter.heroku.com/articles/github-integration
+8. https://www.npmjs.com/package/stripe
