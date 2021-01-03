@@ -1,4 +1,4 @@
-Live URL : https://cool-cloths-live.herokuapp.com/
+Live URL : https://cool-cloths-live.herokuapp.com
 
 Introduction:
 E-Commerce application used for shopping cloths.
