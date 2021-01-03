@@ -16,7 +16,7 @@ Back-End Technologies used:
 7. express - framework to build an API server
 8. stripe - library to make the payments
 9. compression - Compress and gzip the files which are sent from the server.
-10. express-sslify - This is included to support PWA feature & HTTPS proxy is not supported in heroku. 
+10. express-sslify - This is included to support PWA feature & HTTPS proxy is not supported in heroku
 
 
 References:
