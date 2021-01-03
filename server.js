@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const compression = require("compression");
 
 // Import the env configuration if not in production environment.
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
@@ -13,6 +14,7 @@ const app = express();
 // 5000 for local server
 const port = process.env.PORT || 5000;
 
+app.use(compression());
 // Process all the request's body tag and convert it to json
 app.use(bodyParser.json());
 // Encode the url passing in and passing out - should encode characters like space/symbols

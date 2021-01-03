@@ -15,6 +15,7 @@ Back-End Technologies used:
         > .env file is created in the root location to hold the stripe secret key
 7. express - framework to build an API server
 8. stripe - library to make the payments
+9. compression - Compress and gzip the files which are sent from the server
 
 
 References:
