@@ -1,7 +1,7 @@
 Live URL : https://cool-cloths-live.herokuapp.com/
 
 Introduction:
-E-Commerce application used for shopping cloths
+E-Commerce application used for shopping cloths.
 
 Back-End Technologies used:
 1. nodemon - Live reload of the services code.
