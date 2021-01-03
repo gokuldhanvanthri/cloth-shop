@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const compression = require("compression");
+const enforce = require("express-sslify");
 
 // Import the env configuration if not in production environment.
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
@@ -17,6 +18,8 @@ const port = process.env.PORT || 5000;
 app.use(compression());
 // Process all the request's body tag and convert it to json
 app.use(bodyParser.json());
+// Enforces HTTPS connections on any incoming request. HTTP request will be redirected to an HTTPS address.
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 // Encode the url passing in and passing out - should encode characters like space/symbols
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -37,6 +40,10 @@ if (process.env.NODE_ENV === "production") {
 app.listen(port, (error) => {
   if (error) throw error;
   console.log("Server running on the port " + port);
+});
+
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "..", "build", "service-worker.js"));
 });
 
 app.post("/payment", (req, res) => {
